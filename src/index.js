@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const backgroundCanvas = document.getElementById('background-canvas');
     const backgroundCanvasCtx = backgroundCanvas.getContext('2d');
 
-    new Game(
+    const game = new Game(
         canvasCtx,
         canvas,
         backgroundCanvasCtx

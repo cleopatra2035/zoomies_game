@@ -1,5 +1,6 @@
 import Background from './background';
 import Player from './player';
+import Menu from './menu';
 
 export default class Game {
 
@@ -12,6 +13,8 @@ export default class Game {
         this.multiplier = 0.5;
         this.registerEvents();
         this.restart();
+
+        Menu.setMenuButtons(this);
     }
 
     play() {
@@ -33,6 +36,17 @@ export default class Game {
 
     registerEvents() {
         this.canvas.addEventListener('mousedown', this.click);
+    }
+
+    pause() {
+        this.paused = true;
+    }
+
+    unpause() {
+        this.paused = false;
+        if (this.running) {
+            this.animate();
+        }
     }
 
     click(e) {
